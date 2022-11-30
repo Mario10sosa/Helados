@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,21 @@ namespace Dominio
         public void EliminarProducto(CE_Productos Productos)
         {
             objProducto.EliminarProducto(Productos);
+        }
+
+        public DataTable Buscar_Producto_Codigo(CE_Productos Productos)
+        {
+           return objProducto.Buscar_Producto_Codigo(Productos);
+        }
+
+        public DataTable Buscar_Producto_Nombre(CE_Productos Productos)
+        {
+            return objProducto.Buscar_Producto_Nombre(Productos);
+        }
+
+        public DataTable Buscar_Producto_Decripcion(CE_Productos Productos)
+        {
+            return objProducto.Buscar_Producto_Decripcion(Productos);
         }
 
 

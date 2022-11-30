@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CDo_Clientes.cs" />
     <Compile Include="CDo_Procdimientos.cs" />
     <Compile Include="CDo_Productos.cs" />
+    <Compile Include="CDo_Proveedores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

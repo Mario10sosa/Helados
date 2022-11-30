@@ -108,7 +108,7 @@ namespace Datos
 
             if (Dr.Read())
             {
-                Total = Convert.ToInt32(Dr[" TotalRegistros"]) + 1;
+                Total = Convert.ToInt32(Dr["TotalRegistros "]) + 1;
             }
             Dr.Close();
            

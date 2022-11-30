@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using Entidad;
+using System.Windows.Forms;
 
 namespace Datos
 {
@@ -14,6 +15,8 @@ namespace Datos
         CD_Conexion Con = new CD_Conexion();
 
         SqlCommand Cmd;
+        SqlDataAdapter Da;
+        DataTable Dt;
 
         //Metodo que nos permite Agregar un producto a la base de datos
         public void AgregarProducto(CE_Productos Productos)
@@ -55,14 +58,82 @@ namespace Datos
 
         public void EliminarProducto(CE_Productos Productos)
         {
-            Cmd = new SqlCommand("EliminarProducto", Con.Abrir());
-            Cmd.CommandType = CommandType.StoredProcedure;
-            Cmd.Parameters.Add(new SqlParameter("@Id_Producto", Productos.Id_Producto));
+            int Existencia =0;
+            Cmd = new SqlCommand("Select Cantidad From Inventario Where Id_Inventario="+Productos.Id_Producto +"", Con.Abrir());
+            Cmd.CommandType = CommandType.Text;
 
-            Cmd.ExecuteNonQuery();
+            SqlDataReader Dr = Cmd.ExecuteReader();
+            if (Dr.Read())
+            {
+                Existencia = Convert.ToInt32(Dr["Cantidad"].ToString());
+            }
 
-            Con.Cerrar();
+            Dr.Close();
+
+            if(Existencia != 0)
+            {
+                MessageBox.Show("El Producto Contiene Existencias No Puede Ser Eliminado", "Eliminar Producto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;            
+            }
+            else
+            {
+                Cmd = new SqlCommand("EliminarProducto", Con.Abrir());
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.Add(new SqlParameter("@Id_Producto", Productos.Id_Producto));
+                Cmd.ExecuteNonQuery();
+
+                MessageBox.Show("El Producto fue Eliminado Correctamente", "Eliminar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+
+                Con.Cerrar();
+            }
         }
 
+
+        //Medoto que permite buscar por el codigo
+        public DataTable Buscar_Producto_Codigo(CE_Productos Productos)
+        {
+            Dt = new DataTable("Codigo");
+            Cmd = new SqlCommand("Buscar_Producto_Codigo", Con.Abrir());
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(new SqlParameter("@Buscar", Productos.Buscar));
+
+            Da = new SqlDataAdapter(Cmd);
+            Da.Fill(Dt);
+
+            Con.Cerrar();
+            return Dt;
+        }
+
+
+        //Medoto que permite buscar por el Nombre
+
+        public DataTable Buscar_Producto_Nombre(CE_Productos Productos)
+        {
+            Dt = new DataTable("Nombre");
+            Cmd = new SqlCommand("Buscar_Producto_Nombre", Con.Abrir());
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(new SqlParameter("@Buscar", Productos.Buscar));
+
+            Da = new SqlDataAdapter(Cmd);
+            Da.Fill(Dt);
+
+            Con.Cerrar();
+            return Dt;
+        }
+        //Medoto que permite buscar por el descripcion
+        public DataTable Buscar_Producto_Decripcion(CE_Productos Productos)
+        {
+            Dt = new DataTable("Decripcion");
+            Cmd = new SqlCommand("Buscar_Producto_Decripcion", Con.Abrir());
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(new SqlParameter("@Buscar", Productos.Buscar));
+
+            Da = new SqlDataAdapter(Cmd);
+            Da.Fill(Dt);
+
+            Con.Cerrar();
+            return Dt;
+        }
     }
 }

@@ -37,5 +37,17 @@ namespace Presentacion
             FrmInventario Inventario = new FrmInventario();
             Inventario.ShowDialog();
         }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProveedores Proveedores = new FrmProveedores();
+            Proveedores.ShowDialog();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClientes Clientes = new FrmClientes();
+            Clientes.ShowDialog();
+        }
     }
 }

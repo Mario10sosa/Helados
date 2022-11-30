@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class FrmAgregarProducto : FrmBase
+    public partial class FrmEditarProducto : FrmBase
     {
-        public FrmAgregarProducto(FrmProductos Productos)
+        public FrmEditarProducto(FrmProductos Productos)
         {
             InitializeComponent();
         }
 
-        CDo_Procdimientos Procedimientos= new CDo_Procdimientos();
+        CDo_Procdimientos Procedimientos = new CDo_Procdimientos();
         CDo_Productos Productos = new CDo_Productos();
         CE_Productos Producto = new CE_Productos();
 
@@ -31,25 +31,20 @@ namespace Presentacion
             public string Data { get; set; }
         }
 
-        protected void Agregar()
+        protected void Actualizar()
         {
             UpdateEventArgs args = new UpdateEventArgs();
             UpdateEventHandler.Invoke(this, args);
         }
 
-        private void FrmAgregarProducto_Load(object sender, EventArgs e)
+        private void FrmEditar_Load(object sender, EventArgs e)
         {
-            GenerarCodigo();
-        }
 
-        private void GenerarCodigo()
-        {
-            TxtCodigo.Text = "PRP" + Procedimientos.GenerarCodigo("Productos");
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 TxtDescripcion.Focus();
                 e.Handled = true;
@@ -106,17 +101,18 @@ namespace Presentacion
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                BtnAgregar.Focus();
+                BtnEditar.Focus();
                 e.Handled = true;
             }
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
-            Guardar();
+            Editar();
         }
 
-        public override bool Guardar()
+
+        public override void Editar()
         {
             try
             {
@@ -124,10 +120,11 @@ namespace Presentacion
                     TxtDescripcion.Text == string.Empty || TxtPrecioVenta.Text == string.Empty ||
                     TxtCostoUnitario.Text == string.Empty || TxtPrecioVenta.Text == string.Empty)
                 {
-                    MessageBox.Show("Por Favor Debe completa todos los campos", "Agregar Producto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Por Favor Debe completa todos los campos", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
+                    Producto.Id_Producto = Convert.ToInt32(TxtIdProducto.Text.Trim());
                     Producto.Codigo = TxtCodigo.Text.Trim();
                     Producto.Nombre = TxtNombre.Text.Trim();
                     Producto.Descripcion = TxtDescripcion.Text.Trim();
@@ -136,20 +133,19 @@ namespace Presentacion
                     Producto.Precio_Venta = Convert.ToDecimal(TxtPrecioVenta.Text.Trim());
                     Producto.Tipo_Cargo = CbTipoCargo.Text.Trim();
 
-                    Productos.AgregarProducto(Producto);
-                    MessageBox.Show("El producto fue agregado correctamente", "Agregar Producto",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    Productos.EditarProducto(Producto);
+                    MessageBox.Show("El producto fue Editado correctamente", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Procedimientos.LimpiarControles(this);
-                    GenerarCodigo();
-                    TxtNombre.Focus();
-                    Agregar();
-                    return true;
+                    this.Close();
+                    Actualizar();
+                    
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("El producto no fue agregado por: " + ex.Message, "Agregar Producto",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("El producto no fue editado por: " + ex.Message, "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return false;
+            
         }
     }
 }
