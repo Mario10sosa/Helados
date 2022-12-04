@@ -187,6 +187,18 @@
     <Compile Include="FrmAgregarCliente.Designer.cs">
       <DependentUpon>FrmAgregarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgregarEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarEmpresa.Designer.cs">
+      <DependentUpon>FrmAgregarEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgregarIngresoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarIngresoProducto.Designer.cs">
+      <DependentUpon>FrmAgregarIngresoProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAgregarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,11 +223,23 @@
     <Compile Include="FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompras.Designer.cs">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEditarCliente.Designer.cs">
       <DependentUpon>FrmEditarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditarEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarEmpresa.Designer.cs">
+      <DependentUpon>FrmEditarEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEditarProducto.cs">
       <SubType>Form</SubType>
@@ -228,6 +252,12 @@
     </Compile>
     <Compile Include="FrmEditarProveedor.Designer.cs">
       <DependentUpon>FrmEditarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpresas.Designer.cs">
+      <DependentUpon>FrmEmpresas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInventario.cs">
       <SubType>Form</SubType>
@@ -253,10 +283,28 @@
     <Compile Include="FrmProveedores.Designer.cs">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVistaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVistaProductos.Designer.cs">
+      <DependentUpon>FrmVistaProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVistaProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVistaProveedores.Designer.cs">
+      <DependentUpon>FrmVistaProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAgregarCliente.resx">
       <DependentUpon>FrmAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarEmpresa.resx">
+      <DependentUpon>FrmAgregarEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarIngresoProducto.resx">
+      <DependentUpon>FrmAgregarIngresoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarProducto.resx">
       <DependentUpon>FrmAgregarProducto.cs</DependentUpon>
@@ -270,14 +318,23 @@
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompras.resx">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarCliente.resx">
       <DependentUpon>FrmEditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarEmpresa.resx">
+      <DependentUpon>FrmEditarEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarProducto.resx">
       <DependentUpon>FrmEditarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarProveedor.resx">
       <DependentUpon>FrmEditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpresas.resx">
+      <DependentUpon>FrmEmpresas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInventario.resx">
       <DependentUpon>FrmInventario.cs</DependentUpon>
@@ -290,6 +347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedores.resx">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVistaProductos.resx">
+      <DependentUpon>FrmVistaProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVistaProveedores.resx">
+      <DependentUpon>FrmVistaProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

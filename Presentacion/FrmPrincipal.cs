@@ -49,5 +49,17 @@ namespace Presentacion
             FrmClientes Clientes = new FrmClientes();
             Clientes.ShowDialog();
         }
+
+        private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEmpresas Empresa = new FrmEmpresas();
+            Empresa.ShowDialog();
+        }
+
+        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCompras compra= new FrmCompras();
+            compra.ShowDialog();
+        }
     }
 }

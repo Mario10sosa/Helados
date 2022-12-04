@@ -44,7 +44,7 @@ namespace Presentacion
 
         private void GenerarCodigo()
         {
-            TxtCodigo.Text = "PRP" + Procedimientos.GenerarCodigo("Productos");
+            TxtCodigo.Text = Procedimientos.GenerarCodigo("Productos");
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)

@@ -41,7 +41,7 @@ namespace Dominio
         {
 
             
-            return ObjProcedimiento.GenerarCodigo(Tabla);
+            return ObjProcedimiento.GenerarCodigoId(Tabla);
         }
 
         //Metodo que permite dar formulario moneda a un textbox o caja de texto

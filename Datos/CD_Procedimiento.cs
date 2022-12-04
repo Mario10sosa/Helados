@@ -48,7 +48,7 @@ namespace Datos
         public string GenerarCodigo(string Tabla)
         {
 
-            string codigo = string.Empty;
+            string Codigo = string.Empty;
             int Total = 0;
             Cmd = new SqlCommand("Select Count(*) as TotalRegistros From " + Tabla, Con.Abrir());
             Cmd.CommandType = CommandType.Text;
@@ -62,36 +62,36 @@ namespace Datos
             Dr.Close();
             if(Total < 10)
             {
-                codigo = "0000000" + Total;
+                Codigo = "0000000" + Total;
             }
             else if (Total < 100)
             {
-                codigo = "000000" + Total;
+                Codigo = "000000" + Total;
             }
             else if (Total < 1000)
             {
-                codigo = "00000" + Total;
+                Codigo = "00000" + Total;
             }
             else if (Total < 10000)
             {
-                codigo = "0000" + Total;
+                Codigo = "0000" + Total;
             }
             else if (Total < 100000)
             {
-                codigo = "000" + Total;
+                Codigo = "000" + Total;
             }
             else if (Total < 1000000)
             {
-                codigo = "00" + Total;
+                Codigo = "00" + Total;
             }
             else if (Total < 10000000)
             {
-                codigo = "0" + Total;
+                Codigo = "0" + Total;
             }
 
 
             Con.Cerrar();
-            return codigo;
+            return Codigo;
         }
 
         //Metodo que permite cargar los datos de una tabla a un dataGridview
@@ -108,11 +108,11 @@ namespace Datos
 
             if (Dr.Read())
             {
-                Total = Convert.ToInt32(Dr["TotalRegistros "]) + 1;
+                Total = Convert.ToInt32(Dr["TotalRegistros"]) + 1;
             }
             Dr.Close();
-           
 
+            codigo = Convert.ToString(Total);
 
             Con.Cerrar();
             return codigo;

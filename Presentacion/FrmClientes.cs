@@ -26,7 +26,7 @@ namespace Presentacion
             CargarDatos();
             DtClientes.Columns[0].Visible = false; //id Cliente
 
-            DtClientes.Columns[1].Width = 140;//Codigo Cliente
+            DtClientes.Columns[1].Width = 150;//Codigo Cliente
             DtClientes.Columns[2].Width = 280;//Nombre Cliente
             DtClientes.Columns[3].Width = 150;//RNC Cliente
             DtClientes.Columns[4].Width = 350;//Direccion Cliente

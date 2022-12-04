@@ -44,7 +44,7 @@ namespace Presentacion
 
         private void GenerarCodigo()
         {
-            TxtCodigoProveedor.Text = "PRON" + Procedimientos.GenerarCodigo("Proveedores");
+            TxtCodigoProveedor.Text = Procedimientos.GenerarCodigo("Proveedores");
         }
 
         private void TxtNombreProveedor_KeyPress(object sender, KeyPressEventArgs e)

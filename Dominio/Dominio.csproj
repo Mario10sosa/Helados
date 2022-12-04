@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDo_Clientes.cs" />
+    <Compile Include="CDo_Detalle_Ingresos.cs" />
+    <Compile Include="CDo_Empresas.cs" />
+    <Compile Include="CDo_IngresoProductos.cs" />
     <Compile Include="CDo_Procdimientos.cs" />
     <Compile Include="CDo_Productos.cs" />
     <Compile Include="CDo_Proveedores.cs" />

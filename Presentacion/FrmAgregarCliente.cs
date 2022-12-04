@@ -45,7 +45,7 @@ namespace Presentacion
 
         private void GenerarCodigo()
         {
-            TxtCodigoCliente.Text = "PRO" + Procedimientos.GenerarCodigo("Clientes");
+            TxtCodigoCliente.Text = Procedimientos.GenerarCodigo("Clientes");
         }
 
         private void TxtNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -130,9 +130,11 @@ namespace Presentacion
 
                     Clientes.AgregarCliente(Cliente);
                     MessageBox.Show("El Cliente fue agregado correctamente", "Agregar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Procedimientos.LimpiarControles(this);
                     GenerarCodigo();
                     TxtNombreCliente.Focus();
+                    Procedimientos.LimpiarControles(this);
+                    
+                   
                     Agregar();
                     return true;
                 }
